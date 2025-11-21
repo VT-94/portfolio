@@ -1,0 +1,610 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto";
+  scroll-padding-top: 150px;
+}
+
+body {
+  background-color: #333;
+  font-family: "Roboto", arial;
+}
+
+/* Réinitialisation des marges et paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type: disc; /* Affiche les puces */
+  padding-left: 20px;
+}
+
+/* Menu de haut de page */
+.bandeau {
+  position: fixed; /* Fixé en haut de l'écran */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-bottom: yellow solid 2px;
+}
+
+/* Conteneur des liens */
+.bandeau ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around; /* éléments espacés de manière proportionnelle */
+  width: 100%;
+}
+
+/* Style des liens */
+.bandeau ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 2em;
+  transition: 0.5s;
+}
+
+.bandeau ul li a:hover {
+  background-color: yellow;
+  border-radius: 5px;
+  color: #333;
+}
+
+/* Paragraphe d'intro */
+.intro {
+  color: white;
+  width: 33%;
+  background-color: #333;
+  padding: 30px;
+  text-align: center;
+  border-color: white;
+  border-style: solid;
+  border-radius: 50px;
+  position: absolute;
+  left: 10%;
+}
+
+.bienvenue {
+  font-size: 48px;
+  margin-bottom: 25px;
+}
+
+.VT {
+  font-size: 24px;
+}
+
+.photo-id {
+  border-color: white;
+  border-style: solid;
+  border-radius: 50px;
+  position: absolute;
+  right: 10%;
+  width: auto;
+  height: 50%;
+  border-radius: 100%;
+}
+
+h2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  border-top: solid yellow 2px;
+  border-bottom: solid yellow 2px;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style pour les sections */
+
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* EXPERIENCES */
+
+.experience-block {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.experience-block img.img-exp {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.experience-block.geomaticien img.img-exp {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+.experience-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  background-color: #444;
+  border: 1px black solid;
+  border-radius: 50px;
+}
+
+.img-exp {
+  float: right;
+  background-color: #ddd;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 5px;
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+#img_geometre {
+  clear: right;
+}
+
+.boite {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 75%;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.boite h2 {
+  color: #2c3e50;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.boite p {
+  color: #34495e;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* Transition pour l'ouverture/fermeture */
+.section-content {
+  max-height: 0; /* Contenu caché par défaut */
+  overflow: hidden;
+  padding-top: 10px;
+  transition: max-height 0.3s ease-out; /* Animation fluide */
+  background-color: #555;
+}
+
+.section-content ul {
+  margin-bottom: 30px;
+}
+
+.section-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.section-toggle:hover {
+  color: yellow;
+}
+
+/* Style de la boîte */
+.boite {
+  background-color: #555;
+  color: white;
+  padding: 0;
+  width: 75%;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(255, 255, 0, 0.5);
+  border: 2px solid yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.boite.open .section-content {
+  max-height: 500px;
+}
+
+/* Style du texte dans la boîte */
+.titre_parcours {
+  text-align: center;
+  font-size: x-large;
+  color: yellow;
+  padding: 20px;
+}
+
+.boite .missions {
+  font-size: larger;
+  color: white;
+}
+
+.boite .missions-scol {
+  font-size: larger;
+  color: white;
+  text-align: center;
+}
+
+.sigle {
+  cursor: help;
+}
+
+.site-entreprise {
+  text-decoration: none;
+  color: yellow;
+  position: relative; /* pour positionner le soulignement */
+  transition: font-weight 0.3s ease-in-out;
+}
+
+/* Effet au survol du nom de l'entreprise */
+.site-entreprise::after {
+  content: ""; /* Nécessaire pour générer l'élément */
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0; /* Largeur initiale du soulignement */
+  height: 1px;
+  background-color: yellow;
+  transition: width 0.3s ease-in-out;
+}
+
+.site-entreprise:hover::after {
+  width: 100%;
+}
+
+#presentation {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* toute la hauteur de l'écran */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* en arrière-plan */
+}
+
+#slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  border-bottom: yellow;
+  border-bottom-style: solid;
+}
+
+#slide-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #333333;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border-color: yellow;
+  border-style: solid;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: 20px;
+}
+
+.text-beside-slideshow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(51, 51, 51, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.paragraphe1 {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  height: 100vh;
+}
+
+.realisations-container {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap; /* Permet de passer à la ligne quand nécessaire */
+  justify-content: space-between; /* Espacement entre les items */
+  gap: 20px;
+}
+
+.realisations-item {
+  position: relative;
+  width: calc(30% - 15px); /* Réduit la largeur pour laisser plus d’espace */
+  height: 200px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-color: yellow;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+
+.realisations-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  cursor: zoom-in;
+}
+
+.legende {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.realisations-item:hover .legende {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.missions {
+  text-align: justify;
+}
+
+/* CONTACT */
+#contact {
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+#contact p {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#contactForm label {
+  font-size: 1.2em;
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #444;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: yellow;
+  outline: none;
+  background-color: #333;
+}
+
+#contactForm button {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  color: black;
+  font-weight: bold;
+  background-color: yellow;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#contactForm button:hover {
+  transform: scale(1.05);
+}
+
+#confirmationMessage {
+  text-align: center;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+
+footer {
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+  border-top: yellow solid 2px;
+  margin-top: 5%;
+}
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-img {
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 5px;
+}
+
+.footer-img:hover {
+  transform: scale(1.25); /* Effet zoom au survol */
+}
+
+.site-sigma {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: font-weight 0.3s ease-in-out;
+}
+
+.site-sigma::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: yellow;
+  transition: width 0.3s ease-in-out;
+}
+
+.site-sigma:hover::after {
+  width: 100%; /* soulignement au survol */
+}
+
+.site-sigma:hover {
+  font-weight: bold;
+}
+
+/* Adaptation aux écrans mobiles */
+@media (max-width: 768px) {
+  .bandeau ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bandeau {
+    padding: 10px;
+    margin-bottom: 100px;
+  }
+
+  .bandeau ul li a {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-25%);
+    padding: 15px;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 100px;
+  }
+
+  .bienvenue {
+    font-size: 28px;
+  }
+
+  .VT {
+    font-size: 20px;
+  }
+
+  .photo-id {
+    left: -60%;
+    display: block;
+    position: relative;
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .realisations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .realisations-item {
+    width: 90%;
+    height: auto;
+  }
+
+  .experience-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-block.geomaticien {
+    flex-direction: column-reverse;
+  }
+
+  .experience-block .img-exp {
+    width: 80%;
+  }
+
+  .experience-block.geomaticien img.img-exp {
+    width: 80%;
+  }
+}

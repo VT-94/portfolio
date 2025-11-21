@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vincent Thorin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Menu de navigation -->
+    <nav class="bandeau">
+      <ul>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Présentation -->
+    <section id="presentation">
+      <div class="intro">
+        <p class="bienvenue">Bienvenue sur mon portfolio</p>
+        <p class="VT">
+          Je m'appelle Vincent Thorin et je suis actuellement en master de
+          géomatique à Toulouse. Plus tard, j'aimerais travailler dans
+          l'aménagement urbain et des territoires.
+        </p>
+      </div>
+      <div class="paragraphe1">
+        <div class="slideshow-container">
+          <img id="slide-image" src="images/diapo1.jpg" alt="Diapo 1" />
+          <p id="slide-text">Cartographie</p>
+        </div>
+      </div>
+      <img
+        src="images/photo_id.JPG"
+        alt="Photo de Vincent Thorin"
+        class="photo-id"
+      />
+    </section>
+
+    <!-- Réalisations -->
+    <h2>Quelques-unes de mes réalisations…</h2>
+
+    <section id="realisations">
+      <div class="realisations-container">
+        <!-- Premier item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/carte_corse.svg"
+          >
+            <img
+              src="images/carte_corse.svg"
+              alt="Carte touristique de la Corse"
+              class="realisations-img"
+          /></a>
+          <div class="legende">Réalisation de cartes thématiques</div>
+        </div>
+
+        <!-- Deuxième item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/carte_inondation.png"
+          >
+            <img
+              src="images/carte_inondation.png"
+              alt="Cartographie de zones inondées"
+              class="realisations-img"
+          /></a>
+          <div class="legende">Analyse spatiale par télédétection</div>
+        </div>
+
+        <!-- Troisième item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/python.jpg"
+          >
+            <img
+              src="images/python.jpg"
+              alt="Code Python"
+              class="realisations-img"
+          /></a>
+          <div class="legende">
+            Traitements de données avec Python / R <br />
+            Webmapping
+          </div>
+        </div>
+
+        <!-- Quatrième item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/looping.jpg"
+          >
+            <img
+              src="images/looping.jpg"
+              alt="Base de données"
+              class="realisations-img"
+            />
+          </a>
+          <div class="legende">
+            Gestion de bases de données (MCD, MLD...) <br />
+            Requêtes SQL
+          </div>
+        </div>
+
+        <!-- Cinquième item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/mnt.png"
+          >
+            <img
+              src="images/mnt.png"
+              alt="Modèle Numérique de Terrain et courbes de niveaux"
+              class="realisations-img"
+            />
+          </a>
+          <div class="legende">Réalisation de cartes techniques</div>
+        </div>
+
+        <!-- Sixième item -->
+        <div class="realisations-item">
+          <a
+            title="Cliquez pour ouvrir dans un nouvel onglet"
+            target="_blank"
+            href="images/terrain.gif"
+          >
+            <img
+              src="images/terrain.gif"
+              alt="Relevé GPS"
+              class="realisations-img"
+            />
+          </a>
+          <div class="legende">Relevé et analyse de données sur le terrain</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parcours -->
+    <h2>Mon parcours</h2>
+
+    <section class="boite" id="parcours">
+      <div class="parcours-professionnel">
+        <button class="section-toggle">Parcours professionnel</button>
+        <div class="section-content">
+          <!-- Bloc Géomaticien -->
+          <div class="experience-block geomaticien">
+            <div class="experience-text">
+              <h3 class="titre_parcours">
+                2024 - : Géomaticien chez
+                <a class="site-entreprise" href="https://www.parishabitat.fr"
+                  >Paris Habitat</a
+                >
+              </h3>
+              <ul>
+                <li class="missions">
+                  Gestion et consolidation de bases de données
+                </li>
+                <li class="missions">
+                  Représentations cartographiques et statistiques
+                </li>
+                <li class="missions">
+                  Enrichissement et amélioration du portail cartographique
+                </li>
+                <li class="missions">
+                  Développement d'outils d'aide à la prise de décision
+                </li>
+              </ul>
+            </div>
+            <img
+              class="img-exp"
+              src="images/geomaticien.png"
+              alt="Géomaticien"
+              id="img_geomaticien"
+            />
+          </div>
+
+          <!-- Bloc Géomètre -->
+          <div class="experience-block geometre">
+            <img
+              class="img-exp"
+              src="images/geometre.png"
+              alt="Géomètre"
+              id="img_geometre"
+            />
+            <div class="experience-text">
+              <h3 class="titre_parcours">
+                2022 - 2024 : Technicien géomètre chez
+                <a class="site-entreprise" href="https://www.ttge.fr"
+                  >TT Géomètres Experts</a
+                >
+              </h3>
+              <ul>
+                <li class="missions">
+                  Relevés topographiques, fonciers, d’intérieur et de façades
+                </li>
+                <br />
+                <li class="missions">
+                  Recherche et analyse de documents (foncier, aménagement,
+                  urbanisme, environnement...)
+                </li>
+                <br />
+                <li class="missions">
+                  Traitement et analyse des données terrain
+                </li>
+                <br />
+                <li class="missions">DAO de plans divers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS SCOLAIRE -->
+    <section class="boite">
+      <div class="parcours-scolaire">
+        <button class="section-toggle">Parcours scolaire</button>
+        <div class="section-content">
+          <h3 class="titre_parcours">
+            2024 - : Master Sciences Géomatiques en Environnement et Aménagement
+            (SIGMA)
+          </h3>
+          <p class="missions-scol">
+            En alternance chez Paris Habitat<br />Diplôme coaccrédité
+            <a class="sigle" title="Université Toulouse Jean-Jaurès">UT2J</a> /
+            <a
+              class="sigle"
+              title="École Nationale Supérieure Agronomique de Toulouse"
+              >ENSAT</a
+            >, Toulouse (31)
+          </p>
+          <h3 class="titre_parcours">
+            2023 - 2024 : Licence professionnelle Topographique, Voirie et
+            Réseaux divers
+          </h3>
+          <p class="missions-scol">
+            En alternance chez TT Géomètres Experts<br /><a
+              class="sigle"
+              title="École Supérieure des Travaux Publics"
+              >ESTP</a
+            >, Cachan (94)
+          </p>
+          <h3 class="titre_parcours">2021 - 2023 : BTS Géomètre-topographe</h3>
+          <p class="missions-scol">
+            Stage de fin d'année chez TT Géomètres Experts<br />Lycée
+            Claude-Nicolas Ledoux, Vincennes (94)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <div id="contact">
+        <p>Vous pouvez me contacter via ce formulaire.</p>
+
+        <form id="contactForm">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Envoyer</button>
+        </form>
+
+        <p id="confirmationMessage" style="display: none; color: green">
+          Votre message a bien été envoyé !
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-logos">
+        <a
+          href="https://www.univ-tlse2.fr"
+          target="_blank"
+          title="Site de l'Université Toulouse-Jean-Jaurès"
+          ><img src="images/UT2J.png" alt="UT2J" class="footer-img"
+        /></a>
+        <a
+          href="https://www.ensat.fr"
+          target="_blank"
+          title="Site de l'École Nationale Supérieure Agronomique de Toulouse"
+          ><img src="images/ensat.png" alt="ENSAT" class="footer-img"
+        /></a>
+      </div>
+      <p>
+        © 2025 Vincent Thorin –
+        <a
+          class="site-sigma"
+          href="http://sigma.univ-toulouse.fr/"
+          target="_blank"
+          title="Site du master SIGMA"
+          >M1 SIGMA</a
+        >
+      </p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

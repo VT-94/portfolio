@@ -13,11 +13,12 @@ const texts = [
 ];
 
 let index = 0;
-const imgElement = document.getElementById("slide-image");
-const textElement = document.getElementById("slide-text");
+let imgElement;
+let textElement;
 
 function nextSlide() {
   index = (index + 1) % images.length;
+  if (!imgElement || !textElement) return;
   imgElement.style.opacity = "0";
 
   setTimeout(() => {
@@ -26,8 +27,6 @@ function nextSlide() {
     imgElement.style.opacity = "1";
   }, 500);
 }
-
-setInterval(nextSlide, 4000);
 
 // === Onglets Parcours (Toggle Sections) ===
 document.querySelectorAll(".section-toggle").forEach((toggle) => {
@@ -86,4 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   sections.forEach((section) => observer.observe(section));
+
+  // Initialisation du diaporama après que le DOM soit prêt
+  imgElement = document.getElementById("slide-image");
+  textElement = document.getElementById("slide-text");
+  if (imgElement && textElement) {
+    textElement.textContent = texts[index];
+    // Lance le diaporama
+    setInterval(nextSlide, 4000);
+  }
 });

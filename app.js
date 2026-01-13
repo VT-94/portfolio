@@ -1,9 +1,9 @@
 // === Diaporama ===
 const images = [
-  "images/diapo1.jpg",
-  "images/diapo2.jpg",
-  "images/diapo3.jpg",
-  "images/diapo4.jpg",
+  "images/jpg/diapo1.jpg",
+  "images/jpg/diapo2.jpg",
+  "images/jpg/diapo3.jpg",
+  "images/jpg/diapo4.jpg",
 ];
 const texts = [
   "Cartographie",

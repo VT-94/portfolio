@@ -1,19 +1,27 @@
+:root {
+  --primary-bg: #333;
+  --secondary-bg: #444;
+  --tertiary-bg: #555;
+  --accent-color: yellow;
+  --text-color: white;
+  --border-radius: 8px;
+}
+
 html {
   scroll-behavior: smooth;
-  font-family: "Roboto";
   scroll-padding-top: 150px;
 }
 
-body {
-  background-color: #333;
-  font-family: "Roboto", arial;
-}
-
-/* Réinitialisation des marges et paddings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-bg);
+  font-family: "Roboto", arial;
+  color: var(--text-color);
 }
 
 img {
@@ -32,11 +40,11 @@ ul {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
+  background-color: var(--primary-bg);
   padding: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  border-bottom: yellow solid 2px;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 /* Conteneur des liens */
@@ -50,7 +58,7 @@ ul {
 /* Style des liens */
 .bandeau ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
   font-size: 18px;
   font-weight: bold;
   padding: 10px 2em;
@@ -58,20 +66,20 @@ ul {
 }
 
 .bandeau ul li a:hover {
-  background-color: yellow;
+  background-color: var(--accent-color);
   border-radius: 5px;
-  color: #333;
+  color: var(--primary-bg);
 }
 
 /* Paragraphe d'intro */
+/* Paragraphe d'intro */
 .intro {
-  color: white;
+  color: var(--text-color);
   width: 33%;
-  background-color: #333;
+  background-color: var(--primary-bg);
   padding: 30px;
   text-align: center;
-  border-color: white;
-  border-style: solid;
+  border: 1px solid white;
   border-radius: 50px;
   position: absolute;
   left: 10%;
@@ -87,24 +95,21 @@ ul {
 }
 
 .photo-id {
-  border-color: white;
-  border-style: solid;
-  border-radius: 50px;
+  border: 1px solid white;
+  border-radius: 100%;
   position: absolute;
   right: 10%;
   width: auto;
   height: 50%;
-  border-radius: 100%;
 }
 
 h2 {
-  margin-top: 100px;
-  margin-bottom: 50px;
-  border-top: solid yellow 2px;
-  border-bottom: solid yellow 2px;
+  margin: 100px 0 50px 0;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   text-align: center;
   padding: 10px;
-  color: white;
+  color: var(--text-color);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -112,7 +117,6 @@ h2 {
 }
 
 /* Style pour les sections */
-
 section {
   opacity: 0;
   transform: translateY(30px);
@@ -153,8 +157,8 @@ section.visible {
   flex-direction: column;
   justify-content: center;
   padding: 10px;
-  background-color: #444;
-  border: 1px black solid;
+  background-color: var(--secondary-bg);
+  border: 1px solid black;
   border-radius: 50px;
 }
 
@@ -174,24 +178,17 @@ section.visible {
 }
 
 .boite {
-  background-color: #f4f4f4;
-  padding: 20px;
+  background-color: var(--tertiary-bg);
+  color: var(--text-color);
+  padding: 0;
   width: 75%;
   margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.boite h2 {
-  color: #2c3e50;
-  font-size: 1.8em;
-  margin-bottom: 10px;
-}
-
-.boite p {
-  color: #34495e;
-  font-size: 1em;
-  line-height: 1.6;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 2px 5px rgba(255, 255, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Transition pour l'ouverture/fermeture */
@@ -200,7 +197,7 @@ section.visible {
   overflow: hidden;
   padding-top: 10px;
   transition: max-height 0.3s ease-out; /* Animation fluide */
-  background-color: #555;
+  background-color: var(--tertiary-bg);
 }
 
 .section-content ul {
@@ -217,28 +214,13 @@ section.visible {
   border: none;
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 
 .section-toggle:hover {
-  color: yellow;
-}
-
-/* Style de la boîte */
-.boite {
-  background-color: #555;
-  color: white;
-  padding: 0;
-  width: 75%;
-  margin: 20px auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(255, 255, 0, 0.5);
-  border: 2px solid yellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  color: var(--accent-color);
 }
 
 .boite.open .section-content {
@@ -249,18 +231,17 @@ section.visible {
 .titre_parcours {
   text-align: center;
   font-size: x-large;
-  color: yellow;
+  color: var(--accent-color);
   padding: 20px;
 }
 
-.boite .missions {
+.boite .missions,
+.boite .missions-scol {
   font-size: larger;
-  color: white;
+  color: var(--text-color);
 }
 
 .boite .missions-scol {
-  font-size: larger;
-  color: white;
   text-align: center;
 }
 
@@ -270,7 +251,7 @@ section.visible {
 
 .site-entreprise {
   text-decoration: none;
-  color: yellow;
+  color: var(--accent-color);
   position: relative; /* pour positionner le soulignement */
   transition: font-weight 0.3s ease-in-out;
 }
@@ -283,7 +264,7 @@ section.visible {
   left: 0;
   width: 0; /* Largeur initiale du soulignement */
   height: 1px;
-  background-color: yellow;
+  background-color: var(--accent-color);
   transition: width 0.3s ease-in-out;
 }
 
@@ -299,7 +280,7 @@ section.visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-color);
 }
 
 .slideshow-container {
@@ -317,25 +298,22 @@ section.visible {
   height: 100%;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
-  border-bottom: yellow;
-  border-bottom-style: solid;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 #slide-text {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  background-color: #333333;
-  color: white;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
   padding: 10px 20px;
   font-size: 24px;
   font-weight: bold;
-  border-color: yellow;
-  border-style: solid;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  border-bottom: none;
-  border-left: none;
+  border-top: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
   border-top-right-radius: 20px;
 }
 
@@ -344,7 +322,7 @@ section.visible {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(51, 51, 51, 0.8);
-  color: white;
+  color: var(--text-color);
   padding: 20px;
   border-radius: 10px;
   font-size: 24px;
@@ -369,13 +347,12 @@ section.visible {
 
 .realisations-item {
   position: relative;
-  width: calc(30% - 15px); /* Réduit la largeur pour laisser plus d’espace */
+  width: calc(30% - 15px); /* Réduit la largeur pour laisser plus d'espace */
   height: 200px;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  border-color: yellow;
-  border-style: solid;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent-color);
   margin-bottom: 15px;
 }
 
@@ -383,7 +360,6 @@ section.visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   cursor: zoom-in;
 }
 
@@ -393,7 +369,7 @@ section.visible {
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: var(--text-color);
   text-align: center;
   padding: 10px;
   opacity: 0;
@@ -414,8 +390,8 @@ section.visible {
 
 /* CONTACT */
 #contact {
-  background-color: #333;
-  color: white;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
   border-radius: 10px;
   width: 80%;
   margin: auto;
@@ -442,17 +418,17 @@ section.visible {
   padding: 10px;
   font-size: 1em;
   border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #444;
-  color: white;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
   transition: all 0.3s ease;
 }
 
 #contactForm input:focus,
 #contactForm textarea:focus {
-  border-color: yellow;
+  border-color: var(--accent-color);
   outline: none;
-  background-color: #333;
+  background-color: var(--primary-bg);
 }
 
 #contactForm button {
@@ -460,7 +436,7 @@ section.visible {
   font-size: 1.2em;
   color: black;
   font-weight: bold;
-  background-color: yellow;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -482,15 +458,14 @@ section.visible {
 /* FOOTER */
 
 footer {
-  left: 0;
   width: 100%;
-  background-color: #333;
+  background-color: var(--primary-bg);
   padding: 20px;
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 12px;
   text-align: center;
-  border-top: yellow solid 2px;
+  border-top: 2px solid var(--accent-color);
   margin-top: 5%;
 }
 
@@ -513,7 +488,7 @@ footer {
 
 .site-sigma {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
   position: relative;
   transition: font-weight 0.3s ease-in-out;
 }
@@ -525,7 +500,7 @@ footer {
   left: 0;
   width: 0;
   height: 1px;
-  background-color: yellow;
+  background-color: var(--accent-color);
   transition: width 0.3s ease-in-out;
 }
 
@@ -554,9 +529,7 @@ footer {
     font-size: 16px;
     padding: 5px 10px;
   }
-}
 
-@media (max-width: 768px) {
   .intro {
     width: 90%;
     left: 50%;

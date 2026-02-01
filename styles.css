@@ -116,7 +116,9 @@ h2 {
 section {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 section.visible {
@@ -396,7 +398,9 @@ section.visible {
   padding: 10px;
   opacity: 0;
   transform: translateY(100%);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .realisations-item:hover .legende {
@@ -460,7 +464,9 @@ section.visible {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
 }
 
 #contactForm button:hover {

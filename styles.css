@@ -34,6 +34,16 @@ ul {
   padding-left: 20px;
 }
 
+/* Optimisation: espacement des éléments de liste au lieu de <br /> */
+li {
+  margin-bottom: 10px;
+}
+
+#confirmationMessage {
+  display: none;
+  color: green;
+}
+
 /* Menu de haut de page */
 .bandeau {
   position: fixed; /* Fixé en haut de l'écran */

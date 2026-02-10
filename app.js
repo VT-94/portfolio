@@ -1,4 +1,4 @@
-// === Diaporama ===
+// Diaporama
 // Optimisation : utiliser const pour les tableaux constants (meilleure performance)
 const images = [
   "images/jpg/diapo1.jpg",
@@ -32,7 +32,7 @@ const nextSlide = () => {
   }, transitionDuration);
 };
 
-// === Onglets Parcours (Toggle Sections) ===
+// Onglets Parcours (Toggle Sections)
 // Optimisation : utiliser forEach avec une fonction flèche et éviter les répétitions
 document.querySelectorAll(".section-toggle").forEach((toggle) => {
   toggle.addEventListener("click", () => {
@@ -57,7 +57,7 @@ document.querySelectorAll(".section-toggle").forEach((toggle) => {
   });
 });
 
-// === Formulaire de contact ===
+// Formulaire de contact
 // Optimisation : récupérer les éléments une seule fois
 const contactForm = document.getElementById("contactForm");
 const confirmationMessage = document.getElementById("confirmationMessage");
@@ -79,7 +79,7 @@ contactForm.addEventListener("submit", function (event) {
   }
 });
 
-// === Animation des sections au défilement ===
+// Animation des sections au défilement
 // Optimisation : utiliser DOMContentLoaded pour attendre que le DOM soit prêt
 document.addEventListener("DOMContentLoaded", function () {
   // Récupérer toutes les sections
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Observer chaque section
   sections.forEach((section) => observer.observe(section));
 
-  // === Initialisation du diaporama ===
+  // Initialisation du diaporama
   // Optimisation : initialiser après que le DOM soit complètement prêt
   imgElement = document.getElementById("slide-image");
   textElement = document.getElementById("slide-text");
@@ -113,4 +113,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideInterval = 4000;
     setInterval(nextSlide, slideInterval);
   }
+
+  //  Récupération de la version depuis GitHub
+  // Fetch la dernière release du dépôt portfolio
+  fetch("https://api.github.com/repos/VT-94/portfolio/releases/latest")
+    .then((response) => {
+      if (!response.ok) throw new Error("Impossible de récupérer la version");
+      return response.json();
+    })
+    .then((data) => {
+      const version = data.name || data.name || "inconnue";
+      const publishedAt = data.published_at 
+        ? new Date(data.published_at).toLocaleDateString("fr-FR")
+        : "inconnue";
+      document.getElementById("version").textContent = 
+        `${version} – Dernière mise à jour : ${publishedAt}`;
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération de la version :", error);
+      document.getElementById("version").textContent = "N/A";
+    });
 });

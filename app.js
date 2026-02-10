@@ -123,10 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       const version = data.name || data.name || "inconnue";
-      const publishedAt = data.published_at 
-        ? new Date(data.published_at).toLocaleDateString("fr-FR")
+      const publishedAt = data.published_at
+        ? new Date(data.published_at).toLocaleDateString("fr-FR", {
+            dateStyle: "long",
+          })
         : "inconnue";
-      document.getElementById("version").textContent = 
+      document.getElementById("version").textContent =
         `${version} – Dernière mise à jour : ${publishedAt}`;
     })
     .catch((error) => {

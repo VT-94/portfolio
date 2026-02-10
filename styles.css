@@ -523,6 +523,10 @@ footer {
   font-weight: bold;
 }
 
+#version {
+  float: right;
+}
+
 /* Adaptation aux écrans mobiles */
 @media (max-width: 768px) {
   .bandeau ul {

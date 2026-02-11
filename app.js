@@ -103,6 +103,90 @@ document.addEventListener("DOMContentLoaded", function () {
   // Observer chaque section
   sections.forEach((section) => observer.observe(section));
 
+  // Mettre en surbrillance le lien de navigation de la section active
+  const navLinks = document.querySelectorAll('.bandeau ul li a');
+  const idToLink = {};
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    const id = href.slice(1);
+    const section = document.getElementById(id);
+    if (section) idToLink[id] = link;
+  });
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      // Choisir la section intersectée avec le plus grand ratio
+      let maxEntry = null;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!maxEntry || entry.intersectionRatio > maxEntry.intersectionRatio) {
+            maxEntry = entry;
+          }
+        }
+      });
+
+      // Retirer actif de tous les liens
+      navLinks.forEach((l) => l.classList.remove('active'));
+
+      if (maxEntry) {
+        const id = maxEntry.target.id;
+        const link = idToLink[id];
+        if (link) link.classList.add('active');
+      }
+    },
+    { threshold: [0.25, 0.5, 0.75] }
+  );
+
+  // Observer uniquement les sections présentes dans la nav
+  Object.keys(idToLink).forEach((id) => {
+    const s = document.getElementById(id);
+    if (s) navObserver.observe(s);
+  });
+
+  // Fallback robuste: déterminer la section active au scroll (pour sections petites)
+  const sectionIds = Object.keys(idToLink);
+  let ticking = false;
+
+  function updateActiveLinkByScroll() {
+    let closestId = null;
+    let closestDistance = Infinity;
+    const offset = 120; // tenir compte de scroll-padding-top
+
+    sectionIds.forEach((id) => {
+      const s = document.getElementById(id);
+      if (!s) return;
+      const rect = s.getBoundingClientRect();
+      const distance = Math.abs(rect.top - offset);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestId = id;
+      }
+    });
+
+    // Appliquer la classe active
+    navLinks.forEach((l) => l.classList.remove('active'));
+    if (closestId) {
+      const link = idToLink[closestId];
+      if (link) link.classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveLinkByScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Mettre à jour aussi au chargement et au redimensionnement
+  window.addEventListener('resize', updateActiveLinkByScroll);
+  // Exécuter une fois pour initialiser
+  updateActiveLinkByScroll();
+
   // Initialisation du diaporama
   // Optimisation : initialiser après que le DOM soit complètement prêt
   imgElement = document.getElementById("slide-image");

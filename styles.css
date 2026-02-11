@@ -81,6 +81,13 @@ li {
   color: var(--primary-bg);
 }
 
+/* Style pour le lien actif de la barre de navigation */
+.bandeau ul li a.active {
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  color: var(--primary-bg);
+}
+
 /* Paragraphe d'intro */
 .intro {
   color: var(--text-color);

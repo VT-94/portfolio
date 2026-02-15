@@ -1,10 +1,10 @@
 // Diaporama
 // Optimisation : utiliser const pour les tableaux constants (meilleure performance)
 const images = [
-  "images/jpg/diapo1.jpg",
-  "images/jpg/diapo2.jpg",
-  "images/jpg/diapo3.jpg",
-  "images/jpg/diapo4.jpg",
+  "media/jpg/diapo1.jpg",
+  "media/jpg/diapo2.jpg",
+  "media/jpg/diapo3.jpg",
+  "media/jpg/diapo4.jpg",
 ];
 const texts = [
   "Cartographie",

@@ -104,11 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => observer.observe(section));
 
   // Mettre en surbrillance le lien de navigation de la section active
-  const navLinks = document.querySelectorAll('.bandeau ul li a');
+  const navLinks = document.querySelectorAll(".bandeau ul li a");
   const idToLink = {};
   navLinks.forEach((link) => {
-    const href = link.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
+    const href = link.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
     const id = href.slice(1);
     const section = document.getElementById(id);
     if (section) idToLink[id] = link;
@@ -120,22 +120,25 @@ document.addEventListener("DOMContentLoaded", function () {
       let maxEntry = null;
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (!maxEntry || entry.intersectionRatio > maxEntry.intersectionRatio) {
+          if (
+            !maxEntry ||
+            entry.intersectionRatio > maxEntry.intersectionRatio
+          ) {
             maxEntry = entry;
           }
         }
       });
 
       // Retirer actif de tous les liens
-      navLinks.forEach((l) => l.classList.remove('active'));
+      navLinks.forEach((l) => l.classList.remove("active"));
 
       if (maxEntry) {
         const id = maxEntry.target.id;
         const link = idToLink[id];
-        if (link) link.classList.add('active');
+        if (link) link.classList.add("active");
       }
     },
-    { threshold: [0.25, 0.5, 0.75] }
+    { threshold: [0.25, 0.5, 0.75] },
   );
 
   // Observer uniquement les sections présentes dans la nav
@@ -165,25 +168,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Appliquer la classe active
-    navLinks.forEach((l) => l.classList.remove('active'));
+    navLinks.forEach((l) => l.classList.remove("active"));
     if (closestId) {
       const link = idToLink[closestId];
-      if (link) link.classList.add('active');
+      if (link) link.classList.add("active");
     }
   }
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateActiveLinkByScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveLinkByScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
 
   // Mettre à jour aussi au chargement et au redimensionnement
-  window.addEventListener('resize', updateActiveLinkByScroll);
+  window.addEventListener("resize", updateActiveLinkByScroll);
   // Exécuter une fois pour initialiser
   updateActiveLinkByScroll();
 
@@ -199,21 +206,50 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //  Récupération de la version depuis GitHub
-  // Fetch la dernière release du dépôt portfolio
+
+  // Récupérer la date du dernier push et la stocker dans la variable `lastpush`
+  fetch("https://api.github.com/repos/VT-94/portfolio")
+    .then((res) => {
+      if (!res.ok) throw new Error("Échec récupération repo");
+      return res.json();
+    })
+    .then((data) => {
+      // stocker la date en ISO pour réutilisation (ou null si indisponible)
+      const lastpush = data.pushed_at
+        ? new Date(data.pushed_at).toISOString()
+        : null;
+      // exposer pour un usage ultérieur depuis la console ou d'autres scripts
+      window.lastpush = lastpush;
+    })
+    .catch((err) => {
+      console.error("Impossible de récupérer la date du dernier push :", err);
+      window.lastpush = null;
+    });
+
+  // Fetch la dernière release du dépôt portfolio (affichage : privilégier `lastpush`)
   fetch("https://api.github.com/repos/VT-94/portfolio/releases/latest")
     .then((response) => {
       if (!response.ok) throw new Error("Impossible de récupérer la version");
       return response.json();
     })
     .then((data) => {
-      const version = data.name || data.name || "inconnue";
+      const version = data.name || data.tag_name || "inconnue";
       const publishedAt = data.published_at
         ? new Date(data.published_at).toLocaleDateString("fr-FR", {
             dateStyle: "long",
           })
         : "inconnue";
+
+      // Préférer la date du dernier push si disponible (variable exposée par fetch précédent)
+      const lastpushIso = window.lastpush || null;
+      const displayedDate = lastpushIso
+        ? new Date(lastpushIso).toLocaleDateString("fr-FR", {
+            dateStyle: "long",
+          })
+        : publishedAt;
+
       document.getElementById("version").textContent =
-        `${version} – Dernière mise à jour : ${publishedAt}`;
+        `${version} – Dernière mise à jour : ${displayedDate}`;
     })
     .catch((error) => {
       console.error("Erreur lors de la récupération de la version :", error);

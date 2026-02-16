@@ -419,6 +419,12 @@ section.visible {
   background-color: var(--secondary-bg);
   color: var(--text-color);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+#contactForm textarea {
+  resize: vertical; /* Empêche l'extension horizontale par l'utilisateur */
 }
 
 #contactForm input:focus,

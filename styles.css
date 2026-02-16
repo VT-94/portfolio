@@ -39,7 +39,6 @@ li {
   margin-bottom: 10px;
 }
 
-
 /* Menu de haut de page */
 .bandeau {
   position: fixed; /* Fixé en haut de l'écran */
@@ -326,8 +325,6 @@ section.visible {
   border-right: 2px solid var(--accent-color);
   border-top-right-radius: 20px;
 }
-
-
 
 .paragraphe1 {
   display: flex;

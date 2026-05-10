@@ -1,3 +1,9 @@
+// Empêcher le navigateur de restaurer automatiquement la position du scroll
+window.history.scrollRestoration = 'manual';
+
+// Forcer le scroll en haut de la page au chargement
+window.scrollTo(0, 0);
+
 // Diaporama
 // Optimisation : utiliser const pour les tableaux constants (meilleure performance)
 const images = [

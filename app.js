@@ -1,3 +1,7 @@
+const aujourdHui = new Date();
+document.getElementById("date").textContent =
+  aujourdHui.toLocaleDateString("fr-FR");
+
 // Empêcher le navigateur de restaurer automatiquement la position du scroll
 window.history.scrollRestoration = 'manual';
 

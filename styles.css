@@ -1,3 +1,25 @@
+.bandeau-info {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  background: red;
+  color: var(--primary-bg);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  padding: 12px 0 10px 0;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1100;
+  border-bottom: 2px solid #e6c200;
+  border-top: 1px solid #fffbe6;
+}
+
+main {
+  margin-top: 110px;
+}
 :root {
   --primary-bg: #333;
   --secondary-bg: #444;

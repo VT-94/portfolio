@@ -211,28 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(nextSlide, slideInterval);
   }
 
-  //  Récupération de la version depuis GitHub
-
-  // Récupérer la date du dernier push et la stocker dans la variable `lastpush`
-  fetch("https://api.github.com/repos/VT-94/portfolio")
-    .then((res) => {
-      if (!res.ok) throw new Error("Échec récupération repo");
-      return res.json();
-    })
-    .then((data) => {
-      // stocker la date en ISO pour réutilisation (ou null si indisponible)
-      const lastpush = data.pushed_at
-        ? new Date(data.pushed_at).toISOString()
-        : null;
-      // exposer pour un usage ultérieur depuis la console ou d'autres scripts
-      window.lastpush = lastpush;
-    })
-    .catch((err) => {
-      console.error("Impossible de récupérer la date du dernier push :", err);
-      window.lastpush = null;
-    });
-
-  // Fetch la dernière release du dépôt portfolio (affichage : privilégier `lastpush`)
+  // Afficher uniquement le numéro de release (sans date)
   fetch("https://api.github.com/repos/VT-94/portfolio/releases/latest")
     .then((response) => {
       if (!response.ok) throw new Error("Impossible de récupérer la version");
@@ -240,25 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       const version = data.name || data.tag_name || "inconnue";
-      const publishedAt = data.published_at
-        ? new Date(data.published_at).toLocaleDateString("fr-FR", {
-            dateStyle: "long",
-          })
-        : "inconnue";
-
-      // Préférer la date du dernier push si disponible (variable exposée par fetch précédent)
-      const lastpushIso = window.lastpush || null;
-      const displayedDate = lastpushIso
-        ? new Date(lastpushIso).toLocaleDateString("fr-FR", {
-            dateStyle: "long",
-          })
-        : publishedAt;
-
-      document.getElementById("version").textContent =
-        `${version} – Dernière mise à jour : ${displayedDate}`;
+      document.getElementById("version").textContent = version;
     })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération de la version :", error);
-      document.getElementById("version").textContent = "N/A";
+    .catch(() => {
+      document.getElementById("version").textContent = "version inconnue";
     });
 });

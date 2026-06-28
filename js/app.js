@@ -2,11 +2,18 @@ const aujourdHui = new Date();
 document.getElementById("date").textContent =
   aujourdHui.toLocaleDateString("fr-FR");
 
-// Empêcher le navigateur de restaurer automatiquement la position du scroll
-window.history.scrollRestoration = 'manual';
-
-// Forcer le scroll en haut de la page au chargement
-window.scrollTo(0, 0);
+// Mémorisation de la position de scroll pour le retour arrière
+window.addEventListener('pagehide', () => {
+  sessionStorage.setItem('scroll-index', window.scrollY);
+});
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) return;
+  const y = sessionStorage.getItem('scroll-index');
+  if (y !== null) {
+    window.scrollTo(0, parseInt(y));
+    sessionStorage.removeItem('scroll-index');
+  }
+});
 
 // Diaporama
 // Optimisation : utiliser const pour les tableaux constants (meilleure performance)

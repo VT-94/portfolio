@@ -5,7 +5,7 @@ class DetailPage extends HTMLElement {
     const subtitle = this.getAttribute('subtitle') || '';
     const imageSrc = this.getAttribute('image-src') || '';
     const imageAlt = this.getAttribute('image-alt') || 'Image';
-    const backLink = this.getAttribute('back-link') || 'index.html#realisations';
+    const backLink = this.getAttribute('back-link') || '../index.html#realisations';
 
     // Récupérer et STOCKER le contenu des slots AVANT de modifier innerHTML
     const descriptionSlot = this.querySelector('[slot="description"]');

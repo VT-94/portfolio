@@ -11,10 +11,10 @@ window.scrollTo(0, 0);
 // Diaporama
 // Optimisation : utiliser const pour les tableaux constants (meilleure performance)
 const images = [
-  "media/jpg/diapo1.jpg",
-  "media/jpg/diapo2.jpg",
-  "media/jpg/diapo3.jpg",
-  "media/jpg/diapo4.jpg",
+  "media/diaporama/diapo1.jpg",
+  "media/diaporama/diapo2.jpg",
+  "media/diaporama/diapo3.jpg",
+  "media/diaporama/diapo4.jpg",
 ];
 const texts = [
   "Cartographie",

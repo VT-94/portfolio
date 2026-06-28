@@ -4,10 +4,10 @@ class SiteNav extends HTMLElement {
     this.innerHTML = `
       <nav class="bandeau">
         <ul>
-          <li><a href="index.html#presentation">Présentation</a></li>
-          <li><a href="index.html#realisations">Réalisations</a></li>
-          <li><a href="index.html#parcours">Parcours</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../index.html#presentation">Présentation</a></li>
+          <li><a href="../index.html#realisations">Réalisations</a></li>
+          <li><a href="../index.html#parcours">Parcours</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="bandeau-info">

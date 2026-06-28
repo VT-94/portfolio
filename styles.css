@@ -134,57 +134,10 @@ li {
   height: 50%;
 }
 
-h2 {
-  margin: 100px 0 50px 0;
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-  text-align: center;
-  padding: 10px;
-  color: var(--text-color);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Style pour les sections */
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-section.visible {
+/* Ne pas cacher les sections de détail dans les pages de réalisation */
+.detail-section {
   opacity: 1;
-  transform: translateY(0);
-}
-
-/* EXPERIENCES */
-
-.experience-block {
-  display: flex;
-  align-items: stretch;
-  margin-bottom: 20px;
-  gap: 20px;
-}
-
-.experience-block img.img-exp {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.experience-block.geomaticien img.img-exp {
-  width: 40%;
-  height: auto;
-  object-fit: cover;
-}
-
-.experience-text {
-  flex: 1;
-  display: flex;
+  transform: none;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
@@ -541,6 +494,113 @@ footer {
 }
 
 /* Adaptation aux écrans mobiles */
+/* PAGES DE DÉTAIL - Modèle harmonisé pour les réalisations */
+.page-detail {
+  width: 100%;
+  min-height: calc(100vh - 110px);
+  padding: 40px 20px;
+}
+
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 50px;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 30px;
+}
+
+.detail-header h1 {
+  font-size: 2.5em;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.detail-header .subtitle {
+  font-size: 1.3em;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+.detail-content {
+  margin-bottom: 40px;
+}
+
+.detail-section {
+  margin-bottom: 30px;
+}
+
+.detail-section h2 {
+  font-size: 1.8em;
+  margin: 30px 0 20px 0;
+  border: none;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding: 15px;
+}
+
+.detail-section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.detail-section ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.detail-section li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.detail-image-container {
+  text-align: center;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+}
+
+.detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 255, 0, 0.3);
+}
+
+.detail-footer {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 2px solid var(--accent-color);
+  margin-top: 40px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 25px;
+  border: 1px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  transform: translateY(-2px);
+}
+
+/* Adaptation aux écrans mobiles */
 @media (max-width: 768px) {
   .bandeau ul {
     flex-direction: column;
@@ -613,5 +673,18 @@ footer {
 
   .experience-block.geomaticien img.img-exp {
     width: 80%;
+  }
+
+  .detail-header h1 {
+    font-size: 1.8em;
+  }
+
+  .detail-header .subtitle {
+    font-size: 1.1em;
+  }
+
+  .detail-section p,
+  .detail-section li {
+    font-size: 1em;
   }
 }

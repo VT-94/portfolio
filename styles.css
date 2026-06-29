@@ -130,15 +130,19 @@ main {
   height: 50%;
 }
 
-.img-exp {
-  float: right;
-  background-color: #ddd;
-  border: 1px solid black;
-  border-radius: 50px;
-  padding: 5px;
-  display: block;
-  margin: 10px auto;
-  max-width: 100%;
+.experience-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 15px;
+}
+
+.map-embed {
+  flex-shrink: 0;
+  width: 320px;
+  height: 230px;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
 }
 
 .boite {
@@ -640,9 +644,9 @@ main h2 {
     flex-direction: column-reverse;
   }
 
-  .experience-block .img-exp,
-  .experience-block.geomaticien img.img-exp {
-    width: 80%;
+  .map-embed {
+    width: 100%;
+    height: 200px;
   }
 
   .detail-header h1 {

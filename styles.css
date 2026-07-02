@@ -491,6 +491,15 @@ main {
   text-align: center;
   font-size: 1.1em;
   margin-top: 20px;
+  color: #6fcf97;
+}
+
+#errorMessage {
+  display: none;
+  text-align: center;
+  font-size: 1.1em;
+  margin-top: 20px;
+  color: #eb5757;
 }
 
 /* Footer */

@@ -75,24 +75,40 @@ document.querySelectorAll(".section-toggle").forEach((toggle) => {
 });
 
 // Formulaire de contact
-// Optimisation : récupérer les éléments une seule fois
 const contactForm = document.getElementById("contactForm");
 const confirmationMessage = document.getElementById("confirmationMessage");
+const errorMessage = document.getElementById("errorMessage");
+const submitBtn = document.getElementById("submitBtn");
 
-// Ajouter un listener au formulaire avec validation améliorée
-contactForm.addEventListener("submit", function (event) {
+contactForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  // Optimisation : vérifier que tous les champs sont remplis
-  if (
-    contactForm.name.value.trim() &&
-    contactForm.email.value.trim() &&
-    contactForm.message.value.trim()
-  ) {
-    // Afficher le message de confirmation (style défini en CSS)
-    confirmationMessage.style.display = "block";
-    // Réinitialiser le formulaire
-    contactForm.reset();
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Envoi en cours…";
+  confirmationMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  const data = Object.fromEntries(new FormData(contactForm).entries());
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      confirmationMessage.style.display = "block";
+      contactForm.reset();
+    } else {
+      errorMessage.style.display = "block";
+    }
+  } catch {
+    errorMessage.style.display = "block";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Envoyer";
   }
 });
 

@@ -495,7 +495,8 @@ footer {
 /* PAGES DE DÉTAIL */
 .page-detail {
   width: 100%;
-  min-height: calc(100vh - 110px);
+  min-height: 100vh;
+  margin-top: 0;
   padding: 40px 20px;
 }
 

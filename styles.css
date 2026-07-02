@@ -2,7 +2,7 @@
   --primary-bg: #1e2330;
   --secondary-bg: #252b3b;
   --tertiary-bg: #2d3447;
-  --accent-color: #D4A017;
+  --accent-color: #d4a017;
   --text-color: white;
   --border-radius: 6px;
 }
@@ -24,8 +24,12 @@ body {
   line-height: 1.7;
 }
 
-h1, h2, h3, .section-toggle, .bandeau ul li a {
-  font-family: 'Space Grotesk', sans-serif;
+h1,
+h2,
+h3,
+.section-toggle,
+.bandeau ul li a {
+  font-family: "Space Grotesk", sans-serif;
 }
 
 img {
@@ -126,7 +130,7 @@ main {
 }
 
 .slideshow-container::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -184,15 +188,15 @@ main {
 }
 
 .bienvenue {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--accent-color);
   margin-bottom: 24px;
-  background-color:var(--secondary-bg);
-  text-align:center
+  background-color: var(--secondary-bg);
+  text-align: center;
 }
 
 .VT {
@@ -282,7 +286,7 @@ main {
 }
 
 .experience-block::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -23px;
   top: 24px;
@@ -371,7 +375,7 @@ main {
 }
 
 .titre_parcours {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-align: center;
   font-size: 1.05em;
   font-weight: 600;
@@ -567,7 +571,7 @@ main h2 {
   font-size: 1.4em;
   font-weight: 300;
   letter-spacing: 4px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   padding: 15px;
   margin: 30px 0 20px 0;
   border-top: 2px solid var(--accent-color);
@@ -674,6 +678,11 @@ main h2 {
   background-color: var(--accent-color);
   color: var(--primary-bg);
   transform: translateY(-2px);
+}
+
+.h-captcha {
+  display: flex;
+  justify-content: center;
 }
 
 /* Adaptation aux écrans mobiles */

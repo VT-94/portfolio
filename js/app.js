@@ -74,6 +74,19 @@ document.querySelectorAll(".section-toggle").forEach((toggle) => {
   });
 });
 
+// Menu burger (mobile)
+const bandeau = document.querySelector(".bandeau");
+const burger = document.querySelector(".burger");
+if (burger && bandeau) {
+  burger.addEventListener("click", () => {
+    bandeau.classList.toggle("open");
+  });
+  // Refermer le menu après le choix d'une section
+  bandeau.querySelectorAll("ul li a").forEach((link) => {
+    link.addEventListener("click", () => bandeau.classList.remove("open"));
+  });
+}
+
 // Formulaire de contact
 const contactForm = document.getElementById("contactForm");
 const confirmationMessage = document.getElementById("confirmationMessage");

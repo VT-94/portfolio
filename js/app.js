@@ -262,6 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("version").textContent = version;
     })
     .catch(() => {
-      document.getElementById("version").textContent = "version inconnue";
+      document.getElementById("version").style.display = "none";
     });
 });

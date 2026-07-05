@@ -16,7 +16,6 @@ window.addEventListener('pageshow', (e) => {
 });
 
 // Diaporama
-// Optimisation : utiliser const pour les tableaux constants (meilleure performance)
 const images = [
   "media/diaporama/diapo1.jpg",
   "media/diaporama/diapo2.jpg",
@@ -34,13 +33,12 @@ let index = 0;
 let imgElement;
 let textElement;
 
-// Optimisation : utiliser une fonction flèche pour nextSlide
 const nextSlide = () => {
   index = (index + 1) % images.length;
   if (!imgElement || !textElement) return;
   imgElement.style.opacity = "0";
 
-  // Utiliser une constante pour le timeout (30ms pour la transition)
+  // Laisser le fondu se terminer avant de changer d'image
   const transitionDuration = 500;
   setTimeout(() => {
     imgElement.src = images[index];
@@ -49,14 +47,11 @@ const nextSlide = () => {
   }, transitionDuration);
 };
 
-// Onglets Parcours (Toggle Sections)
-// Optimisation : utiliser forEach avec une fonction flèche et éviter les répétitions
+// Onglets Parcours (accordéons)
 document.querySelectorAll(".section-toggle").forEach((toggle) => {
   toggle.addEventListener("click", () => {
-    // Récupérer l'élément de contenu associé
     const content = toggle.nextElementSibling;
 
-    // Vérifier si la section est déjà ouverte
     if (content.classList.contains("open")) {
       content.style.maxHeight = "0";
       content.classList.remove("open");
@@ -67,7 +62,6 @@ document.querySelectorAll(".section-toggle").forEach((toggle) => {
         section.classList.remove("open");
       });
 
-      // Ouvrir la section sélectionnée
       content.style.maxHeight = content.scrollHeight + "px";
       content.classList.add("open");
     }
@@ -126,16 +120,12 @@ contactForm.addEventListener("submit", async function (event) {
 });
 
 // Animation des sections au défilement
-// Optimisation : utiliser DOMContentLoaded pour attendre que le DOM soit prêt
 document.addEventListener("DOMContentLoaded", function () {
-  // Récupérer toutes les sections
   const sections = document.querySelectorAll("section");
 
-  // Utiliser IntersectionObserver pour une animation au défilement performante
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // Ajouter la classe "visible" quand la section est visible
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
         } else {
@@ -146,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.2 }, // Déclencher quand 20% de la section est visible
   );
 
-  // Observer chaque section
   sections.forEach((section) => observer.observe(section));
 
   // Mettre en surbrillance le lien de navigation de la section active
@@ -175,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Retirer actif de tous les liens
       navLinks.forEach((l) => l.classList.remove("active"));
 
       if (maxEntry) {
@@ -213,7 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Appliquer la classe active
     navLinks.forEach((l) => l.classList.remove("active"));
     if (closestId) {
       const link = idToLink[closestId];
@@ -235,13 +222,10 @@ document.addEventListener("DOMContentLoaded", function () {
     { passive: true },
   );
 
-  // Mettre à jour aussi au chargement et au redimensionnement
   window.addEventListener("resize", updateActiveLinkByScroll);
-  // Exécuter une fois pour initialiser
   updateActiveLinkByScroll();
 
   // Initialisation du diaporama
-  // Optimisation : initialiser après que le DOM soit complètement prêt
   imgElement = document.getElementById("slide-image");
   textElement = document.getElementById("slide-text");
   if (imgElement && textElement) {
@@ -251,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(nextSlide, slideInterval);
   }
 
-  // Afficher uniquement le numéro de release (sans date)
+  // Numéro de version depuis la dernière release GitHub
   fetch("https://api.github.com/repos/VT-94/portfolio/releases/latest")
     .then((response) => {
       if (!response.ok) throw new Error("Impossible de récupérer la version");

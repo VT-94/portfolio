@@ -472,20 +472,62 @@ main {
   transform: scale(1.05);
 }
 
-#confirmationMessage {
-  display: none;
+#formModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--tertiary-bg);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  width: 90%;
+  max-width: 480px;
   text-align: center;
-  font-size: 1.1em;
-  margin-top: 20px;
-  color: #6fcf97;
 }
 
-#errorMessage {
-  display: none;
-  text-align: center;
+#formModal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#formModalMessage {
   font-size: 1.1em;
-  margin-top: 20px;
-  color: #eb5757;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+#formModalLinkedin {
+  display: none;
+  width: fit-content;
+  margin: 0 auto 20px;
+}
+
+#formModalLinkedin img {
+  height: 36px;
+  width: 36px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#formModalLinkedin:hover img {
+  transform: scale(1.15);
+}
+
+#formModalClose {
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#formModalClose:hover {
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -767,4 +809,11 @@ main h2 {
   .detail-section li {
     font-size: 1em;
   }
+}
+
+#lien-linkedin-erreur {
+  color: var(--accent-color);
+  text-decoration: none;
+  position: relative;
+  transition: font-weight 0.3s ease-in-out;
 }

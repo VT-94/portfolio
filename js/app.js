@@ -3,15 +3,15 @@ document.getElementById("date").textContent =
   aujourdHui.toLocaleDateString("fr-FR");
 
 // Mémorisation de la position de scroll pour le retour arrière
-window.addEventListener('pagehide', () => {
-  sessionStorage.setItem('scroll-index', window.scrollY);
+window.addEventListener("pagehide", () => {
+  sessionStorage.setItem("scroll-index", window.scrollY);
 });
-window.addEventListener('pageshow', (e) => {
+window.addEventListener("pageshow", (e) => {
   if (e.persisted) return;
-  const y = sessionStorage.getItem('scroll-index');
+  const y = sessionStorage.getItem("scroll-index");
   if (y !== null) {
     window.scrollTo(0, parseInt(y));
-    sessionStorage.removeItem('scroll-index');
+    sessionStorage.removeItem("scroll-index");
   }
 });
 
@@ -82,37 +82,76 @@ if (burger && bandeau) {
 }
 
 // Formulaire de contact
+const TEST_MODE = false; // true pour tester le formulaire directement, repasser à false avant mise en ligne
+const TEST_ERROR = false; // true pour tester la popup d'erreur, false pour tester la popup de succès
+const SUCCESS_MESSAGE = "Votre message a bien été transmis. Je reviendrai prochainement vers vous par e-mail.\nMerci !";
+const ERROR_MESSAGE =
+  "Une erreur est survenue et votre message n'a pas pu être envoyé.\nSi le problème persiste, vous pouvez me contacter sur LinkedIn :";
 const contactForm = document.getElementById("contactForm");
-const confirmationMessage = document.getElementById("confirmationMessage");
-const errorMessage = document.getElementById("errorMessage");
 const submitBtn = document.getElementById("submitBtn");
+const formModal = document.getElementById("formModal");
+const formModalMessage = document.getElementById("formModalMessage");
+const formModalLinkedin = document.getElementById("formModalLinkedin");
+const formModalClose = document.getElementById("formModalClose");
+
+function showFormModal(message, { showLinkedin = false } = {}) {
+  formModalMessage.textContent = message;
+  formModalLinkedin.style.display = showLinkedin ? "block" : "none";
+  formModal.showModal();
+}
+
+formModalClose.addEventListener("click", () => formModal.close());
+
+// Fermer la popup en cliquant en dehors
+formModal.addEventListener("click", (event) => {
+  const rect = formModal.getBoundingClientRect();
+  const isInDialog =
+    rect.top <= event.clientY &&
+    event.clientY <= rect.bottom &&
+    rect.left <= event.clientX &&
+    event.clientX <= rect.right;
+  if (!isInDialog) formModal.close();
+});
 
 contactForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Envoi en cours…";
-  confirmationMessage.style.display = "none";
-  errorMessage.style.display = "none";
+
+  if (TEST_MODE) {
+    setTimeout(() => {
+      showFormModal(TEST_ERROR ? ERROR_MESSAGE : SUCCESS_MESSAGE, {
+        showLinkedin: TEST_ERROR,
+      });
+      contactForm.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Envoyer";
+    }, 500);
+    return;
+  }
 
   const data = Object.fromEntries(new FormData(contactForm).entries());
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(data),
     });
     const result = await response.json();
 
     if (result.success) {
-      confirmationMessage.style.display = "block";
+      showFormModal(SUCCESS_MESSAGE);
       contactForm.reset();
     } else {
-      errorMessage.style.display = "block";
+      showFormModal(ERROR_MESSAGE, { showLinkedin: true });
     }
   } catch {
-    errorMessage.style.display = "block";
+    showFormModal(ERROR_MESSAGE, { showLinkedin: true });
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "Envoyer";

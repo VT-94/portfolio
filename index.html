@@ -387,11 +387,22 @@
 
             <button type="submit" id="submitBtn">Envoyer</button>
           </form>
-
-          <p id="confirmationMessage">Votre message a bien été envoyé !</p>
-          <p id="errorMessage">Une erreur est survenue, veuillez réessayer.</p>
         </div>
       </section>
+
+      <dialog id="formModal">
+        <p id="formModalMessage"></p>
+        <a
+          id="formModalLinkedin"
+          href="https://www.linkedin.com/in/vincent-thorin/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Me contacter sur LinkedIn"
+        >
+          <img src="media/logos/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <button type="button" id="formModalClose">OK</button>
+      </dialog>
     </main>
 
     <!-- Footer -->
@@ -403,7 +414,12 @@
           rel="noopener noreferrer"
           title="Site de l'Université Toulouse-Jean-Jaurès"
         >
-          <img src="media/logos/UT2J.png" alt="UT2J" class="footer-img" loading="lazy" />
+          <img
+            src="media/logos/UT2J.png"
+            alt="UT2J"
+            class="footer-img"
+            loading="lazy"
+          />
         </a>
         <a
           href="https://www.ensat.fr"
@@ -411,7 +427,12 @@
           rel="noopener noreferrer"
           title="Site de l'École Nationale Supérieure Agronomique de Toulouse"
         >
-          <img src="media/logos/ensat.png" alt="ENSAT" class="footer-img" loading="lazy" />
+          <img
+            src="media/logos/ensat.png"
+            alt="ENSAT"
+            class="footer-img"
+            loading="lazy"
+          />
         </a>
       </div>
       <p>© Vincent Thorin</p>

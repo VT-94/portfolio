@@ -23,8 +23,7 @@ class SiteFooter extends HTMLElement {
             </ul>
           </nav>
 
-          <div class="footer-col">
-            <p class="footer-title">Me retrouver</p>
+          <div class="footer-col footer-col-links">
             <div class="footer-links">
               <a
                 href="https://www.linkedin.com/in/vincent-thorin/"

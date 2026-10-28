@@ -551,6 +551,7 @@ footer {
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto 20px;
+  text-align: center;
 }
 
 :where(.footer-col) p {
@@ -603,8 +604,15 @@ footer {
   opacity: 1;
 }
 
+.footer-col-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-links {
   display: flex;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -636,11 +644,6 @@ footer {
 @media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-links {
-    justify-content: center;
   }
 }
 

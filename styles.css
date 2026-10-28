@@ -542,21 +542,23 @@ footer {
   margin-top: 5%;
 }
 
-.footer-logos {
+.footer-links {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
   margin-bottom: 10px;
 }
 
-.footer-img {
-  height: 50px;
+.footer-icon {
+  height: 36px;
+  border-radius: var(--border-radius);
   transition: transform 0.3s ease-in-out;
   margin-bottom: 5px;
 }
 
-.footer-img:hover {
-  transform: scale(1.25);
+.footer-links a:hover .footer-icon,
+.footer-links a:focus-visible .footer-icon {
+  transform: scale(1.2);
 }
 
 .site-sigma {

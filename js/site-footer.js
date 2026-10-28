@@ -7,34 +7,56 @@ class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <footer>
-        <div class="footer-links">
-          <a
-            href="https://www.linkedin.com/in/vincent-thorin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Mon profil LinkedIn"
-          >
-            <img data-src="media/logos/linkedin.svg" alt="LinkedIn" class="footer-icon" loading="lazy" />
-          </a>
-          <a
-            href="https://github.com/VT-94"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Mon profil GitHub"
-          >
-            <img data-src="media/logos/github.svg" alt="GitHub" class="footer-icon" loading="lazy" />
-          </a>
-          <a
-            data-href="media/cv/CV_Thorin_Vincent.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Mon CV (PDF)"
-          >
-            <img data-src="media/logos/cv.svg" alt="CV" class="footer-icon" loading="lazy" />
-          </a>
+        <div class="footer-content">
+          <div class="footer-col">
+            <p class="footer-name">Vincent Thorin</p>
+            <p class="footer-job">Géomaticien</p>
+            <p class="footer-keywords">SIG · Cartographie · Analyse spatiale</p>
+          </div>
+
+          <nav class="footer-col" aria-label="Navigation du pied de page">
+            <p class="footer-title">Navigation</p>
+            <ul class="footer-nav">
+              <li><a data-section="realisations">Réalisations</a></li>
+              <li><a data-section="parcours">Parcours</a></li>
+              <li><a data-section="contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-col">
+            <p class="footer-title">Me retrouver</p>
+            <div class="footer-links">
+              <a
+                href="https://www.linkedin.com/in/vincent-thorin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Mon profil LinkedIn"
+              >
+                <img data-src="media/logos/linkedin.svg" alt="LinkedIn" class="footer-icon" loading="lazy" />
+              </a>
+              <a
+                href="https://github.com/VT-94"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Mon profil GitHub"
+              >
+                <img data-src="media/logos/github.svg" alt="GitHub" class="footer-icon" loading="lazy" />
+              </a>
+              <a
+                data-href="media/cv/CV_Thorin_Vincent.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Mon CV (PDF)"
+              >
+                <img data-src="media/logos/cv.svg" alt="CV" class="footer-icon" loading="lazy" />
+              </a>
+            </div>
+          </div>
         </div>
-        <p>© Vincent Thorin</p>
-        <p><span id="version"></span></p>
+
+        <p class="footer-bottom">
+          © <span class="footer-year"></span> Vincent Thorin<span id="version"></span>
+        </p>
       </footer>
     `;
 
@@ -45,6 +67,16 @@ class SiteFooter extends HTMLElement {
     this.querySelectorAll("[data-href]").forEach((link) => {
       link.href = new URL(link.dataset.href, SITE_ROOT).href;
     });
+
+    // Sur l'accueil : simple ancre. Ailleurs : retour à l'accueil, à la bonne section
+    this.querySelectorAll("[data-section]").forEach((link) => {
+      const id = link.dataset.section;
+      link.href = document.getElementById(id)
+        ? `#${id}`
+        : new URL(`index.html#${id}`, SITE_ROOT).href;
+    });
+
+    this.querySelector(".footer-year").textContent = new Date().getFullYear();
 
     this.afficherVersion();
   }

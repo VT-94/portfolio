@@ -538,31 +538,110 @@ site-footer {
 footer {
   width: 100%;
   background-color: var(--primary-bg);
-  padding: 20px;
+  padding: 30px 20px 15px;
   color: var(--text-color);
-  font-size: 12px;
-  text-align: center;
+  font-size: 14px;
   border-top: 2px solid var(--accent-color);
   margin-top: 5%;
 }
 
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+}
+
+:where(.footer-col) p {
+  margin: 0;
+}
+
+.footer-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.footer-job {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.footer-keywords {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.footer-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
 .footer-links {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 10px;
+  gap: 16px;
 }
 
 .footer-icon {
   height: 36px;
   border-radius: var(--border-radius);
   transition: transform 0.3s ease-in-out;
-  margin-bottom: 5px;
 }
 
 .footer-links a:hover .footer-icon,
 .footer-links a:focus-visible .footer-icon {
   transform: scale(1.2);
+}
+
+.footer-bottom {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+#version:not(:empty)::before {
+  content: " · ";
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
 }
 
 .site-sigma {
@@ -589,10 +668,6 @@ footer {
 
 .site-sigma:hover {
   font-weight: bold;
-}
-
-#version {
-  float: right;
 }
 
 /* Titres de section */

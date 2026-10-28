@@ -273,18 +273,4 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideInterval = 4000;
     setInterval(nextSlide, slideInterval);
   }
-
-  // Numéro de version depuis la dernière release GitHub
-  fetch("https://api.github.com/repos/VT-94/portfolio/releases/latest")
-    .then((response) => {
-      if (!response.ok) throw new Error("Impossible de récupérer la version");
-      return response.json();
-    })
-    .then((data) => {
-      const version = data.name || data.tag_name || "inconnue";
-      document.getElementById("version").textContent = version;
-    })
-    .catch(() => {
-      document.getElementById("version").style.display = "none";
-    });
 });

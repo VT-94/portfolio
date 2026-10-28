@@ -531,6 +531,10 @@ main {
 }
 
 /* Footer */
+site-footer {
+  display: block;
+}
+
 footer {
   width: 100%;
   background-color: var(--primary-bg);

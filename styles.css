@@ -595,7 +595,9 @@ footer {
   color: var(--text-color);
   text-decoration: none;
   opacity: 0.85;
-  transition: color 0.2s, opacity 0.2s;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
 }
 
 .footer-nav a:hover,

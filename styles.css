@@ -650,6 +650,10 @@ footer {
   content: " · ";
 }
 
+.footer-bottom a {
+  color: inherit;
+}
+
 @media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr;
@@ -693,6 +697,49 @@ main h2 {
   margin: 30px 0 20px 0;
   border-top: 2px solid var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
+}
+
+/* Mentions légales : page sobre, texte simple */
+.page-legale {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page-legale h1 {
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 20px 0 30px;
+}
+
+.page-legale h2 {
+  text-align: left;
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 0;
+  margin: 30px 0 10px;
+  border: none;
+}
+
+.page-legale p,
+.page-legale li {
+  margin-bottom: 8px;
+}
+
+.page-legale ul {
+  margin-left: 20px;
+}
+
+.page-legale a {
+  color: var(--accent-color);
+}
+
+.page-legale .maj {
+  margin-top: 40px;
+  font-size: 0.9em;
+  opacity: 0.75;
 }
 
 /* Pages de détail */

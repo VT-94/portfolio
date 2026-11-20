@@ -55,6 +55,7 @@ class SiteFooter extends HTMLElement {
 
         <p class="footer-bottom">
           © <span class="footer-year"></span> Vincent Thorin<span id="version"></span>
+          · <a data-href="mentions-legales.html">Mentions légales</a>
         </p>
       </footer>
     `;

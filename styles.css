@@ -472,6 +472,13 @@ main {
   transform: scale(1.05);
 }
 
+#contactForm .mention-donnees {
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin: 0;
+  font-style: italic;
+}
+
 #formModal {
   position: fixed;
   top: 50%;

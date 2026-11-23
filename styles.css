@@ -703,32 +703,6 @@ footer {
   }
 }
 
-.site-sigma {
-  text-decoration: none;
-  color: var(--text-color);
-  position: relative;
-  transition: font-weight 0.3s ease-in-out;
-}
-
-.site-sigma::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease-in-out;
-}
-
-.site-sigma:hover::after {
-  width: 100%;
-}
-
-.site-sigma:hover {
-  font-weight: bold;
-}
-
 /* Titres de section */
 main h2 {
   text-align: center;
@@ -992,11 +966,4 @@ main h2 {
   .detail-section li {
     font-size: 1em;
   }
-}
-
-#lien-linkedin-erreur {
-  color: var(--accent-color);
-  text-decoration: none;
-  position: relative;
-  transition: font-weight 0.3s ease-in-out;
 }

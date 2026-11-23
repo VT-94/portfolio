@@ -158,25 +158,7 @@ contactForm.addEventListener("submit", async function (event) {
   }
 });
 
-// Animation des sections au défilement
 document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("section");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
-        }
-      });
-    },
-    { threshold: 0.2 }, // Déclencher quand 20% de la section est visible
-  );
-
-  sections.forEach((section) => observer.observe(section));
-
   // Mettre en surbrillance le lien de navigation de la section active
   const navLinks = document.querySelectorAll(".bandeau ul li a");
   const idToLink = {};

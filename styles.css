@@ -214,6 +214,45 @@ main {
   margin-top: 12px;
 }
 
+.bouton-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-weight: bold;
+  color: black;
+  background-color: var(--accent-color);
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.bouton-contact svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bouton-contact::after {
+  content: "→";
+  content: "→" / "";
+  transition: transform 0.2s;
+}
+
+.bouton-contact:hover,
+.bouton-contact:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.bouton-contact:hover::after,
+.bouton-contact:focus-visible::after {
+  transform: translateX(4px);
+}
+
 .photo-id {
   position: absolute;
   z-index: 1;

@@ -210,6 +210,10 @@ main {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.VT + .VT {
+  margin-top: 12px;
+}
+
 .photo-id {
   position: absolute;
   z-index: 1;

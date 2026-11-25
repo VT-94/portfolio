@@ -159,9 +159,9 @@ main {
   font-weight: 400;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--accent-color);
+  color: var(--secondary-bg);
   margin-bottom: 24px;
-  background-color: var(--secondary-bg);
+  background-color: var(--accent-color);
   text-align: center;
 }
 
@@ -169,6 +169,7 @@ main {
   font-size: 1.1em;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
+  text-align: justify;
 }
 
 .VT + .VT {

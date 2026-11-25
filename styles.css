@@ -221,7 +221,7 @@ main {
   right: 8%;
   top: 50%;
   transform: translateY(-50%);
-  height: 65%;
+  height: min(65%, 37vw);
   width: auto;
   border-radius: 100%;
   border: 2px solid rgba(255, 255, 255, 0.15);
@@ -823,6 +823,41 @@ main h2 {
 }
 
 /* ==========================================================
+   ACCUEIL EMPILÉ (tablettes, téléphones, écrans peu hauts)
+   Photo au-dessus du texte ; la section s'allonge si besoin.
+   ========================================================== */
+@media (max-width: 1024px), (max-height: 500px) {
+  #presentation {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 0;
+  }
+
+  .intro {
+    position: static;
+    transform: none;
+    width: 90%;
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .VT {
+    text-align: center;
+  }
+
+  .photo-id {
+    position: static;
+    transform: none;
+    order: -1;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+  }
+}
+
+/* ==========================================================
    VERSION MOBILE (écrans de 768 px de large ou moins)
    ========================================================== */
 @media (max-width: 768px) {
@@ -860,22 +895,6 @@ main h2 {
     padding: 5px 10px;
   }
 
-  /* Accueil : photo et texte empilés, la section s'allonge si besoin */
-  #presentation {
-    height: auto;
-    min-height: 100vh;
-    flex-direction: column;
-    gap: 24px;
-    padding: 40px 0;
-  }
-
-  .intro {
-    position: static;
-    transform: none;
-    width: 90%;
-    text-align: center;
-  }
-
   .bienvenue {
     font-size: 1.4rem;
     letter-spacing: 4px;
@@ -883,16 +902,6 @@ main h2 {
 
   .VT {
     font-size: 1em;
-    text-align: center;
-  }
-
-  .photo-id {
-    position: static;
-    transform: none;
-    order: -1;
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
   }
 
   .realisations-container {

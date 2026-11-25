@@ -659,12 +659,6 @@ footer {
   color: inherit;
 }
 
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Titres de section */
 main h2 {
   text-align: center;
@@ -828,8 +822,14 @@ main h2 {
   justify-content: center;
 }
 
-/* Adaptation aux écrans mobiles */
+/* ==========================================================
+   VERSION MOBILE (écrans de 768 px de large ou moins)
+   ========================================================== */
 @media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
   .burger {
     display: block;
     margin: 0 auto;

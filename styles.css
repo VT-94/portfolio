@@ -860,8 +860,18 @@ main h2 {
     padding: 5px 10px;
   }
 
+  /* Accueil : photo et texte empilés, la section s'allonge si besoin */
+  #presentation {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 0;
+  }
+
   .intro {
-    left: 5%;
+    position: static;
+    transform: none;
     width: 90%;
     text-align: center;
   }
@@ -877,7 +887,12 @@ main h2 {
   }
 
   .photo-id {
-    display: none;
+    position: static;
+    transform: none;
+    order: -1;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
   }
 
   .realisations-container {

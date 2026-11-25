@@ -15,38 +15,6 @@ window.addEventListener("pageshow", (e) => {
   }
 });
 
-// Diaporama
-const images = [
-  "media/diaporama/diapo1.jpg",
-  "media/diaporama/diapo2.jpg",
-  "media/diaporama/diapo3.jpg",
-  "media/diaporama/diapo4.jpg",
-];
-const texts = [
-  "Cartographie",
-  "Modélisation 3D",
-  "Gestion de bases de données",
-  "Programmation",
-];
-
-let index = 0;
-let imgElement;
-let textElement;
-
-const nextSlide = () => {
-  index = (index + 1) % images.length;
-  if (!imgElement || !textElement) return;
-  imgElement.style.opacity = "0";
-
-  // Laisser le fondu se terminer avant de changer d'image
-  const transitionDuration = 500;
-  setTimeout(() => {
-    imgElement.src = images[index];
-    textElement.textContent = texts[index];
-    imgElement.style.opacity = "1";
-  }, transitionDuration);
-};
-
 // Onglets Parcours (accordéons)
 document.querySelectorAll(".section-toggle").forEach((toggle) => {
   toggle.addEventListener("click", () => {
@@ -245,14 +213,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("resize", updateActiveLinkByScroll);
   updateActiveLinkByScroll();
-
-  // Initialisation du diaporama
-  imgElement = document.getElementById("slide-image");
-  textElement = document.getElementById("slide-text");
-  if (imgElement && textElement) {
-    textElement.textContent = texts[index];
-    // Démarrer le diaporama automatique (changement toutes les 4 secondes)
-    const slideInterval = 4000;
-    setInterval(nextSlide, slideInterval);
-  }
 });

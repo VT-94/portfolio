@@ -1,0 +1,21 @@
+name: Vérification des liens
+
+on:
+  push:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+jobs:
+  liens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude linkedin.com
+            --exclude api.web3forms.com
+            --accept 200..=299,429
+            "./**/*.html"
